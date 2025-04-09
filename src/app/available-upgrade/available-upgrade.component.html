@@ -1,0 +1,8 @@
+
+<div style="display: flex; flex-direction: column; background-color: aqua; padding: 10px;">
+    <label>{{this.upgrade.name}}</label>
+    <label>price: {{this.upgrade.price}}</label>
+    <label>multiplies by: {{this.upgrade.value}}</label>
+    <label>unlocked at: {{this.upgrade.unlockRequirement}}</label>
+    <button (click)="purchase()" [disabled]="GetDisabled()">BUY</button>
+</div>
