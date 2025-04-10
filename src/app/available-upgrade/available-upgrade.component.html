@@ -1,8 +1,16 @@
 
-<div style="display: flex; flex-direction: column; background-color: aqua; padding: 10px;">
+<!-- <div style="display: flex; flex-direction: column; background-color: aqua; padding: 10px; width: 300px; padding: 10px; margin: 10px;">
     <label>{{this.upgrade.name}}</label>
     <label>price: {{this.upgrade.price}}</label>
     <label>multiplies by: {{this.upgrade.value}}</label>
     <label>unlocked at: {{this.upgrade.unlockRequirement}}</label>
     <button (click)="purchase()" [disabled]="GetDisabled()">BUY</button>
-</div>
+</div> -->
+
+<div style="display: flex; gap: 20px; align-items: center;">
+    <button style="width: 100px;" (click)="purchase()" [disabled]="GetDisabled()">[ BUY ]</button>
+    <label style="width: 100px;">{{ upgrade.name }}</label>
+    <label style="width: 100px;">Price: {{ upgrade.price }}
+        Boost: ×{{ upgrade.value }}</label>
+    <!-- <label style="width: 100px;">Unlocks At: {{ upgrade.unlockRequirement }}</label> -->
+  </div>

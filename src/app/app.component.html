@@ -1,22 +1,39 @@
 
-<div style="display: flex; flex-direction: column; width: 200px; background-color: red; padding: 10px;">
-
-  <label>COUNTER: {{this.counter}}</label>
-  <label>CURRENCY {{this.currency}}</label>
-  <button (click)="clicked()">CLICK</button>
-  
-  <label>{{this.counterAdder}} PER CLICK</label>
-  <label>{{this.passiveCounter}} PER SECOND</label>
+<div style="display: flex; flex-direction: column; width: calc(100% - 0px); height: calc(100vh - 16px);  background-color: black; justify-content: flex-end; z-index: -2;">
+  <div style="display: flex; flex-direction: row; justify-content: flex-end; align-items: center;">
+    <div style="display: flex; flex-direction: column-reverse; flex-wrap: wrap; align-content: flex-end; width: 800px; ">
+      @for (availableUpgrade of availableUpgrades; track $index) {
+        <app-available-upgrade
+          [upgrade]="availableUpgrade"
+          (purchaseClickedEvent)="purchase($event)"
+          [currency]="GetCurrency()"
+        ></app-available-upgrade>
+      }
+    </div>  
+  </div>
 </div>
-<div style="display: flex; flex-direction: column; width: 200px; background-color: greenyellow; padding: 10px;">
 
-  @for (availableUpgrade of availableUpgrades; track $index) {
-    <app-available-upgrade [upgrade]="availableUpgrade" (purchaseClickedEvent)="purchase($event)" [currency]="GetCurrency()"></app-available-upgrade>
+<div class="terminal" style="width: 50%; display: flex; flex-direction: column; padding: 10px;
+position: absolute;
+left: calc(100% - 675px);
+top: calc(50px); 
+z-index: 1;
+">
+  <h1 class="glitch flicker" data-text="HACKER CLICKER">HACKER CLICKER</h1>
+  <label class="counter">COUNTER: {{ counter }}</label>
+  <label class="glitch">CURRENCY {{ currency }}</label>
+  <label class="glitch">{{ counterAdder }} MALWARE PER CLICK</label>
+  <label class="glitch">{{ passiveCounter }} MALWARE PER SECOND</label>
+  <button (click)="clicked()">CLICK</button>
+
+</div>
+
+<div class="terminal2"  #terminalContainer>    
+  @for (line of lines; track $index) {
+    <div class="terminal-line2" style="z-index: 1;">
+      {{ line }}
+    </div>
   }
 </div>
 
-
-<!-- <div style="background-color: greenyellow; height: 400px;"> -->
-  <!-- <app-counter-digit id="counterdigit" name="counterdigit"></app-counter-digit> -->
-<!-- </div> -->
-<router-outlet />
+<router-outlet></router-outlet>

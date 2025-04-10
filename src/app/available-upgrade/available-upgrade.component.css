@@ -1,0 +1,49 @@
+:host {
+    font-family: 'Courier New', Courier, monospace;
+    color: #00ff00;
+    background-color: black;
+    border: 2px solid #00ff00;
+    padding: 10px;
+    margin: 10px;
+    width: 50%;
+    box-shadow: 0 0 10px #00ff00;
+    animation: flicker 1.5s infinite;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.85; }
+    100% { opacity: 1; }
+  }
+  
+  label {
+    display: block;
+    margin: 5px 0;
+    text-shadow: 0 0 3px #00ff00;
+  }
+  
+  button {
+    background-color: black;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    padding: 5px 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #003300;
+  }
+
+  button:disabled{
+    background-color: black;
+  color: #555;
+  border: 2px solid #222;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-shadow: none;
+  }
